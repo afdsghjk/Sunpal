@@ -1,2 +1,2 @@
 # Sunpal
-This is a project for Java practise
+This is a project for Personal use.
