@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      
+    xsi:schemaLocation="    
+     http://www.springframework.org/schema/beans     
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd    
+     ">  
+  
+    <bean class="com.sunpal.config.GlobalAppConfiguration">  
+        <!-- 配置信息 -->    
+        <property name="appFileName">  
+            <value>qmhnFactory300.apk</value>  
+        </property> 
+        <property name="appStoredDir">  
+            <value>apps</value>  
+        </property> 
+        <property name="appDownloadUrl">  
+            <value>http://appdlc.hicloud.com/dl/appdl/application/apk/8e/8e6190835a10411faf816483030b327a/com.chinaums.countryside.1704051857.apk?sign=mw@mw1493966021381</value>  
+        </property> 
+        
+        <property name="appPackage">  
+            <value>com.chinaums.countryside</value>  
+        </property> 
+        <property name="appActivity">  
+            <value>com.chinaums.mpos.activity.management.StartActivity</value>  
+        </property>
+    </bean>  
+</beans> 

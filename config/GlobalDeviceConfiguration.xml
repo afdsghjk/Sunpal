@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      
+    xsi:schemaLocation="    
+     http://www.springframework.org/schema/beans     
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd    
+     ">  
+  
+    <bean class="com.sunpal.config.GlobalDeviceConfiguration">  
+        <!-- 配置信息 -->    
+        <property name="classpathRoot">  
+            <value>/apps/</value>  
+        </property> 
+        <property name="deviceName">  
+            <value>Android Emulator</value>  
+        </property> 
+        <property name="platformVersion">  
+            <value>4.4</value>  
+        </property>
+    </bean>  
+</beans> 
