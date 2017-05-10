@@ -1,7 +1,12 @@
 package com.sunpal.appium;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +18,7 @@ import org.testng.log4testng.Logger;
 
 import com.sunpal.config.GlobalAppConfiguration;
 import com.sunpal.config.GlobalDeviceConfiguration;
+import com.sunpal.config.GlobalTestcaseConfiguration;
 import com.sunpal.network.ApkDownloader;
 
 import io.appium.java_client.AppiumDriver;
@@ -74,4 +80,20 @@ public class AndroidBaseDriver {
                         + ".scrollable(true)).scrollIntoView(resourceId(\"android:id/list\")).scrollIntoView("
                         + "new UiSelector().text(\""+text+"\"))"));
     }
+    
+    public boolean takeScreenshot() {
+		File srcFile = driver.getScreenshotAs(OutputType.FILE);
+		File targetFile=new File((new StringBuilder(System.getProperty("user.dir"))).append(GlobalTestcaseConfiguration.screenshotPath).append((new SimpleDateFormat ("yyyyMMddHHmmssSSS")).format(new Date())).append(".png").toString());
+		
+	    try {
+			FileUtils.copyFile(srcFile, targetFile);
+			return true;
+		} 
+	    catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

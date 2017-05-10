@@ -14,6 +14,7 @@ public class AndroidTester extends AndroidBaseDriver {
 	
 	@Test
 	public void upgradeDemo(){
+		takeScreenshot();
 		WebElement el = driver.findElement(By.xpath(".//*[@text='更新']"));
         assertEquals("更新", el.getText());
         el.click();
