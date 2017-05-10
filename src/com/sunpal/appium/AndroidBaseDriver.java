@@ -1,5 +1,7 @@
 package com.sunpal.appium;
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -18,6 +20,7 @@ import com.sunpal.config.GlobalAppConfiguration;
 import com.sunpal.config.GlobalDeviceConfiguration;
 import com.sunpal.config.GlobalTestcaseConfiguration;
 import com.sunpal.network.ApkDownloader;
+import com.sunpal.tools.CommandRunner;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -107,5 +110,13 @@ public class AndroidBaseDriver implements IAndroidBaseDriver {
         capabilities.setCapability("appPackage", GlobalAppConfiguration.appPackage);
         capabilities.setCapability("appActivity", GlobalAppConfiguration.appActivity);
         driver = new AndroidDriver<>(service.getUrl(), capabilities);
+    }
+    
+    public void installAppViaAdb() throws Exception {
+    	File app = new File(appDir.getCanonicalPath(), GlobalAppConfiguration.appFileName);
+    	if (!app.exists()) {
+    		assertTrue(false);
+    	}
+    	CommandRunner.runCmdCommand("adb install -r " + app.getAbsolutePath());
     }
 }

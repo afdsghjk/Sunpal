@@ -18,6 +18,9 @@
         <property name="waitTimeout">  
             <value>10000</value>  
         </property>
+        <property name="upgradeWaitTime">  
+            <value>60000</value>  
+        </property>
         <property name="screenshotPath">  
             <value>/screenshots/</value>  
         </property>
