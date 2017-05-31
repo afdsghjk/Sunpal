@@ -8,6 +8,7 @@ public class ApkDownloader implements AppDownloader {
 
 		try {
 			HttpDownloadUtility.downloadFile(urlStr, fileName, savePath);
+			return true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
