@@ -31,7 +31,7 @@ public class ExcelWriter {
 	
 	public static void main(String[] args) {
 		if(args.length < 2) {
-			System.out.println("No args entered!");
+			System.out.println("Input file and output file should be specified!");
 			return;
 		}
 		
