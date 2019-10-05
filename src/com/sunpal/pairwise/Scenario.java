@@ -37,10 +37,12 @@ public class Scenario {
     /**
      * A flattened array representing the values of all the parameters in the set
      */
-    private List<?> parameterValues = new ArrayList();
+    @SuppressWarnings("rawtypes")
+	private List<?> parameterValues = new ArrayList();
     public List<?> getParameterValues() { return parameterValues; }
 
-    protected void updateParameterValues(ParameterSet<?> parameterSet) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	protected void updateParameterValues(ParameterSet<?> parameterSet) {
         parameterValues.addAll((Collection)parameterSet.getParameterValues());
     }
 
@@ -84,7 +86,7 @@ public class Scenario {
         int k = 0; //The index of the parameter set attached to this value
         for ( int i = 0; i < this.getLegalValues().length; ++i ) {
             int[] curr = this.getLegalValues()[i];
-            for (int aCurr : curr) {
+            for (@SuppressWarnings("unused") int aCurr : curr) {
                 parameterPositions[k++] = i;
             }
         }
